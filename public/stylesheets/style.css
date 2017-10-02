@@ -1,0 +1,26 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+#logo{
+  font-family: "Pinyon Script";
+  font-size: 28px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 500;
+  line-height: 26.4px;
+}
+.thumbnail{
+  margin: 10px;
+  padding: 5px;
+}
+.thumbnail img {
+  max-height: 150px;
+}
+.carousel-inner img{
+  max-height: 450px;
+}
