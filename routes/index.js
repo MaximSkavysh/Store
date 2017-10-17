@@ -1,9 +1,17 @@
 var express = require('express');
 var router = express.Router();
+var Product = require('../models/Category');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('shop/index', { title: 'Shop' ,footerName: 'Fausto Olmedi'});
+  Product.find(function(err, docs){
+    var productChunks =[];
+    var chunkSize = 3;
+    for(var i = 0; i< docs.length; i += chunkSize){
+      productChunks.push(docs.slice(i, i + chunkSize));
+    }
+  })
+  res.render('shop/index', { name: 'Shop' ,footerName: 'Fausto Olmedi'});
 });
 
 module.exports = router;

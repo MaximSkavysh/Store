@@ -10,12 +10,14 @@ var expressHbs = require('express-handlebars');
 var index = require('./routes/index');
 var mongoose = require('mongoose');
 
-
-
-
 var app = express();
 
-mongoose.connect('localhost:27017/shop');
+var uri = 'mongodb://SkavyshM:pa$$word123@cluster0-shard-00-00-so4rk.mongodb.net:27017,cluster0-shard-00-01-so4rk.mongodb.net:27017,cluster0-shard-00-02-so4rk.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin'
+mongoose.connect(uri,{
+  useMongoClient: true
+});
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 // view engine setup
 app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js')); // redirect bootstrap JS
